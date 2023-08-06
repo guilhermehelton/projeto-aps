@@ -1,8 +1,12 @@
+import { AuthGoogleProvider } from "./contexts/authGoogle";
+import { AppRoutes } from "./routes/routes";
+import "./App.css";
+
 function App() {
   return (
-    <div className="App">
-      <h1>Bem vindo</h1>
-    </div>
+    <AuthGoogleProvider>
+      <AppRoutes />
+    </AuthGoogleProvider>
   );
 }
 
