@@ -1,22 +1,20 @@
-require('dotenv').config()
-const express = require('express')
-const mongoose = require('mongoose')
+import express from "express";
+import routes from "./routes/index.js";
 
-const app = express()
+class App {
+  constructor() {
+    this.server = express();
+    this.middlewares();
+    this.routes();
+  }
 
-app.get('/', (req, res) => {
-    res.status(200).json({msg: 'Bem vindo a API'})
-})
+  middlewares() {
+    this.server.use(express.json());
+  }
 
-const dbUser = process.env.DB_USER;
-const dbPass = process.env.DB_PASS;
+  routes() {
+    this.server.use(routes);
+  }
+}
 
-mongoose
-    .connect(`mongodb+srv://${dbUser}:${dbPass}@cluster0.qgn4tk2.mongodb.net/?retryWrites=true&w=majority`)
-    .then(() => {
-        app.listen(3001)
-        console.log('API rodando na porta 3001')
-    })
-    .catch(err => console.log(err))
-
-
+export default new App().server;

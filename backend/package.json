@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "projeto de backend da disciplina de aps",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "mongoose": "^7.4.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.1"
   }
 }
